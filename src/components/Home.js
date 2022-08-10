@@ -1,12 +1,12 @@
 import React from "react";
+import Foods from "../pages/Services/Foods";
 import Banner from "./Banner";
-import Nav from "./Nav";
 
 const Home = () => {
   return (
     <div>
-      <Nav />
       <Banner />
+      <Foods />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -26,10 +27,14 @@ const Nav = () => {
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
-            <button className="btn btn-primary ps-4">login</button>
-            <button className="btn btn-success">join now</button>
-          </form>
+          <Link to="/login" className="btn btn-primary">
+            Login
+          </Link>
+          <span className="mx-2"></span>
+          <Link to="/register" className="btn btn-success">
+            {" "}
+            Join now{" "}
+          </Link>
         </div>
       </div>
     </nav>

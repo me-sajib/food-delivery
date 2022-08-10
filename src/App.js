@@ -1,13 +1,19 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
+import Login from "./pages/auth/Login";
 import Nav from "./components/Nav";
-import Foods from "./pages/Services/Foods";
+import Register from "./pages/auth/Register";
 
 function App() {
   return (
     <>
-      <Home />
-      <Foods />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </>
   );
 }
