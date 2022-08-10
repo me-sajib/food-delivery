@@ -12,8 +12,8 @@ const Foods = () => {
   console.log(food);
   return (
     <div className="container py-5">
-      <h1>Available Restaurant Nearby Area</h1>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <h1 className="text-center py-3">Available Restaurant Nearby Area</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
         {food.map((fd) => (
           <Food food={fd} key={fd.id} />
         ))}

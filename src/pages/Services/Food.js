@@ -1,14 +1,19 @@
 import React from "react";
 
 const Food = (props) => {
-  const { name, image, details } = props.food;
+  const { name, image, category } = props.food;
   return (
     <div class="col">
       <div class="card">
-        <img src={image} class="card-img-top" alt="frsdf" />
+        <div className="card-img">
+          <img src={image} class="card-img-top" alt="food" />
+        </div>
         <div class="card-body">
           <h5 class="card-title">{name}</h5>
-          <p class="card-text">{details}</p>
+
+          <ul>
+            <li>{category}</li>
+          </ul>
         </div>
       </div>
     </div>
