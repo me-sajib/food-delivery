@@ -47,7 +47,7 @@ const Login = () => {
 
           <div class="text-center">
             <p>
-              Not a member? <a href="#!">Register</a>
+              Not a member? <a href="/register">Register</a>
             </p>
             <p>or sign up with:</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">

@@ -39,16 +39,17 @@ const Register = () => {
           </div>
 
           <div class="form-check d-flex justify-content-center mb-4">
-            <input
-              class="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="form2Example33"
-              checked
-            />
-            <label class="form-check-label" for="form2Example33">
-              Subscribe to our newsletter
-            </label>
+            <label class="form-label" for="user">
+              Role
+            </label>{" "}
+            <select
+              name="role"
+              id="user"
+              className="form-select ms-2"
+              aria-label="Default select example"
+            >
+              <option selected>User</option>
+            </select>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block mb-4">
