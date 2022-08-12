@@ -23,7 +23,8 @@
 
 /* small device banner-image hide */
 @media (max-width: 768px) {
-  .banner-images {
+  .banner-images,
+  .delivery-logos {
     display: none;
   }
 }
