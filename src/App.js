@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Register from "./pages/auth/Register";
 import Footer from "./components/Footer";
 import FoodById from "./pages/Services/FoodById";
+import PrivateRoute from "./Auth/PrivateRoute";
 
 function App() {
   return (
@@ -13,7 +14,14 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<FoodById />} />
+        <Route
+          path="/:id"
+          element={
+            <PrivateRoute>
+              <FoodById />
+            </PrivateRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
