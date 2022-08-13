@@ -1,13 +1,46 @@
-import React from "react";
+import { updateProfile } from "firebase/auth";
+import React, { useEffect } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.config";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const navigateToHome = useNavigate();
+
+  const registerUser = (e) => {
+    e.preventDefault();
+    const firstName = e.target.firstName.value;
+    const lastName = e.target.lastName.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    createUserWithEmailAndPassword(email, password);
+    updateProfile(auth, { displayName: firstName });
+  };
+  if (error) {
+    console.log(error);
+  }
+
+  // useEffect(() => {
+  //   navigateToHome("/");
+  // }, [navigateToHome]);
+  if (user) {
+    navigateToHome("/");
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="container">
       <div className="py-5">
         <h1 className="text-warning text-center py-5">
           Become a our member? Register now
         </h1>
-        <form className="form-width">
+        <form className="form-width" onSubmit={registerUser}>
           <div class="row mb-4">
             <div class="col">
               <div class="form-outline">
@@ -16,6 +49,7 @@ const Register = () => {
                   id="form3Example1"
                   placeholder="first name"
                   class="form-control"
+                  name="firstName"
                 />
                 <label class="form-label" for="form3Example1">
                   First name
@@ -29,6 +63,7 @@ const Register = () => {
                   placeholder="last name"
                   id="form3Example2"
                   class="form-control"
+                  name="lastName"
                 />
                 <label class="form-label" for="form3Example2">
                   Last name
@@ -43,6 +78,7 @@ const Register = () => {
               placeholder="example: 01XXXXXXXXX"
               id="form3Example33"
               class="form-control"
+              name="phone"
             />
             <label class="form-label" for="form3Example33">
               Phone Number
@@ -55,6 +91,7 @@ const Register = () => {
               placeholder="enter your email"
               id="form3Example3"
               class="form-control"
+              name="email"
             />
             <label class="form-label" for="form3Example3">
               Email address
@@ -67,6 +104,7 @@ const Register = () => {
               placeholder="enter your secure password"
               id="form3Example4"
               class="form-control"
+              name="password"
             />
             <label class="form-label" for="form3Example4">
               Password

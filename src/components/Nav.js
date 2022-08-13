@@ -1,7 +1,18 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../firebase.config";
 
 const Nav = () => {
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (user) {
+    console.log(user);
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -27,14 +38,22 @@ const Nav = () => {
               </a>
             </li>
           </ul>
-          <Link to="/login" className="btn btn-primary">
-            Login
-          </Link>
-          <span className="mx-2"></span>
-          <Link to="/register" className="btn btn-success">
-            {" "}
-            Join now{" "}
-          </Link>
+          {user?.email ? (
+            <button className="btn btn-danger" onClick={() => signOut(auth)}>
+              Sign Out
+            </button>
+          ) : (
+            <>
+              <Link to="/login" className="btn btn-primary">
+                Login
+              </Link>
+              <span className="mx-2"></span>
+              <Link to="/register" className="btn btn-success">
+                {" "}
+                Join now{" "}
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
