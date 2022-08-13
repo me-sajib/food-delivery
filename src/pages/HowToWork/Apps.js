@@ -6,7 +6,7 @@ const Apps = () => {
       <div className="row g-5">
         <div className="col">
           <div className="logo-app">
-            <img src={apps} alt="logo-app" />
+            <img src={apps} alt="logo-app" className="img-fluid" />
           </div>
         </div>
         <div className="col">
