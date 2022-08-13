@@ -4,16 +4,27 @@ const Login = () => {
   return (
     <div className="container">
       <div className="py-5">
+        <h1 className="text-info text-center py-5"> Login Now</h1>
         <form className="form-width">
           <div class="form-outline mb-4">
-            <input type="email" id="form2Example1" class="form-control" />
+            <input
+              type="email"
+              placeholder="enter your email"
+              id="form2Example1"
+              class="form-control"
+            />
             <label class="form-label" for="form2Example1">
               Email address
             </label>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" />
+            <input
+              type="password"
+              placeholder="enter your password"
+              id="form2Example2"
+              class="form-control"
+            />
             <label class="form-label" for="form2Example2">
               Password
             </label>

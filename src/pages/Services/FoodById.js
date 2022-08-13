@@ -19,7 +19,6 @@ const FoodById = () => {
       });
   }, [ids]);
   const service = food.find((fd) => fd.id == ids);
-  var taxTotal = quantity * service?.price;
   return (
     <div className="container py-5">
       <h1>Food by {service?.name}</h1>
