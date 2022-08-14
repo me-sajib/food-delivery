@@ -9,9 +9,6 @@ const Nav = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  if (user) {
-    console.log(user);
-  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-light">
