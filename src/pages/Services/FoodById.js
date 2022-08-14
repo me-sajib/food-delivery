@@ -19,6 +19,12 @@ const FoodById = () => {
       });
   }, [ids]);
   const service = food.find((fd) => fd.id == ids);
+
+  const addToFood = (item) => {
+    const items = item;
+    items.quantity = quantity;
+    console.log(items);
+  };
   return (
     <div className="container py-5">
       <h1>Food by {service?.name}</h1>
@@ -74,21 +80,16 @@ const FoodById = () => {
           </div>
 
           <div className="d-flex  justify-content-evenly w-75">
-            <p>Sub Total</p>
-            <p>${quantity * service?.price}</p>
-          </div>
-
-          <div className="d-flex  justify-content-evenly w-75">
-            <p>tax / vat</p>
-            <p>${0.1 * (service?.price * quantity)}</p>
-          </div>
-
-          <div className="d-flex  justify-content-evenly w-75">
             <h5>Total</h5>
-            <h5>${0.1 * service?.price + quantity * service?.price}</h5>
+            <h5>${service?.price + quantity * service?.price}</h5>
           </div>
           <div className="d-flex justify-content-center">
-            <button className="btn btn-primary">add to card</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => addToFood(service)}
+            >
+              add to card
+            </button>
           </div>
         </div>
       </div>
