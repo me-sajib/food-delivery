@@ -1,5 +1,5 @@
 import { updateProfile } from "firebase/auth";
-import React, { useEffect } from "react";
+import React from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
