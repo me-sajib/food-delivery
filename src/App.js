@@ -10,7 +10,7 @@ import PrivateRoute from "./Auth/PrivateRoute";
 
 function App() {
   return (
-    <>
+    <div width={{ width: "100%  " }}>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

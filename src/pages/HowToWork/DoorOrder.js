@@ -14,7 +14,7 @@ const DoorOrder = () => {
           <button className="btn btn-primary">order more</button>
         </div>
 
-        <div className="order-boy">
+        <div className="order-boy sm-none">
           <img src={orderBoy} alt="" />
         </div>
       </div>

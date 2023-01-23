@@ -1,3 +1,17 @@
+.app-available {
+  display: flex;
+  gap: 20px;
+}
+
+span.apple-icon {
+  padding: 10px 0px;
+}
+
+span.apple-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
 .banner-heading {
   display: flex;
   justify-content: center;
@@ -29,9 +43,14 @@
 }
 
 /* small device banner-image hide */
-@media (max-width: 768px) {
+@media (max-width: 768px)  {
   .banner-images,
   .delivery-logos {
     display: none;
   }
 }
+@media (min-width: 320px) and (max-width: 768px) {
+  .sm-none{
+    display: none;
+  }
+ }

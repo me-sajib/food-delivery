@@ -4,7 +4,7 @@ const Apps = () => {
   return (
     <div className="container py-5">
       <div className="row g-5">
-        <div className="col">
+        <div className="col sm-none">
           <div className="logo-app">
             <img src={apps} alt="logo-app" className="img-fluid" />
           </div>
