@@ -9,25 +9,25 @@ import FoodById from "./pages/Services/FoodById";
 import PrivateRoute from "./Auth/PrivateRoute";
 
 function App() {
-	return (
-		<div style={{ width: "100%" }}>
-			<Nav />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route
-					path="/:id"
-					element={
-						<PrivateRoute>
-							<FoodById />
-						</PrivateRoute>
-					}
-				/>
-				<Route path="/login" element={<Login />} />
-				<Route path="/register" element={<Register />} />
-			</Routes>
-			<Footer />
-		</div>
-	);
+  return (
+    <div style={{ width: "100%" }}>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/:id"
+          element={
+            <PrivateRoute>
+              <FoodById />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
