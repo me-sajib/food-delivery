@@ -21,24 +21,14 @@ const Register = () => {
 
   const registerUser = (data) => {
     const { name, email, password } = data;
-    // e.preventDefault();
-    // const firstName = e.target.firstName.value;
-    // const lastName = e.target.lastName.value;
-    // const email = e.target.email.value;
-    // const password = e.target.password.value;
+
     createUserWithEmailAndPassword(email, password);
     updateProfile(auth, { displayName: name });
-
-    console.log(data);
-    console.log(user);
   };
   if (error) {
     console.error(error);
   }
 
-  // useEffect(() => {
-  //   navigateToHome("/");
-  // }, [navigateToHome]);
   if (user) {
     navigateToHome("/");
   }
