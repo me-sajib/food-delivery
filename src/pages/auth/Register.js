@@ -3,6 +3,7 @@ import React from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.config";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { FaStarOfLife } from "react-icons/fa";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
 
@@ -10,19 +11,29 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const navigateToHome = useNavigate();
 
-  const registerUser = (e) => {
-    e.preventDefault();
-    const firstName = e.target.firstName.value;
-    const lastName = e.target.lastName.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  const registerUser = (data) => {
+    const { name, email, password } = data;
+    // e.preventDefault();
+    // const firstName = e.target.firstName.value;
+    // const lastName = e.target.lastName.value;
+    // const email = e.target.email.value;
+    // const password = e.target.password.value;
     createUserWithEmailAndPassword(email, password);
-    updateProfile(auth, { displayName: firstName });
+    updateProfile(auth, { displayName: name });
+
+    console.log(data);
+    console.log(user);
   };
   if (error) {
-    console.log(error);
+    console.error(error);
   }
 
   // useEffect(() => {
@@ -42,192 +53,160 @@ const Register = () => {
         <h1 className="text-warning text-center py-5">
           Become a our member? Register now
         </h1>
-        {/* <form className="form-width" onSubmit={registerUser}>
-          <div className="row mb-4">
-            <div className="col">
-              <div className="form-outline">
-                <input
-                  type="text"
-                  id="form3Example1"
-                  placeholder="first name"
-                  className="form-control"
-                  name="firstName"
-                />
-                <label className="form-label" for="form3Example1">
-                  First name
-                </label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="form-outline">
-                <input
-                  type="text"
-                  placeholder="last name"
-                  id="form3Example2"
-                  className="form-control"
-                  name="lastName"
-                />
-                <label className="form-label" for="form3Example2">
-                  Last name
-                </label>
-              </div>
-            </div>
-          </div>
 
-          <div className="form-outline mb-4">
-            <input
-              type="number"
-              placeholder="example: 01XXXXXXXXX"
-              id="form3Example33"
-              className="form-control"
-              name="phone"
-            />
-            <label className="form-label" for="form3Example33">
-              Phone Number
-            </label>
-          </div>
-
-          <div className="form-outline mb-4">
-            <input
-              type="email"
-              placeholder="enter your email"
-              id="form3Example3"
-              className="form-control"
-              name="email"
-            />
-            <label className="form-label" for="form3Example3">
-              Email address
-            </label>
-          </div>
-
-          <div className="form-outline mb-4">
-            <input
-              type="password"
-              placeholder="enter your secure password"
-              id="form3Example4"
-              className="form-control"
-              name="password"
-            />
-            <label className="form-label" for="form3Example4">
-              Password
-            </label>
-          </div>
-
-          <div className="form outline mb-4">
-            <select
-              name="role"
-              id="user"
-              className="form-select"
-              aria-label="Default select"
-            >
-              <option selected>User</option>
-            </select>{" "}
-            <label className="form-label" for="user">
-              Role
-            </label>
-          </div>
-
-          <button type="submit" className="btn btn-primary btn-block mb-4">
-            Sign up
-          </button>
-
-          <div className="text-center">
-            <p>or sign up with:</p>
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-google"></i>
-            </button>
-
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" className="btn btn-primary btn-floating mx-1">
-              <i className="fab fa-github"></i>
-            </button>
-          </div>
-        </form> */}
-
-        <form action="" className="form-width">
+        <form onSubmit={handleSubmit(registerUser)} className="form-width">
           <div className="row  ">
-            <div className="col container ">
-              <div className="form-floating">
+            <div className="col form-input-lg">
+              {/* user name  */}
+              <div className="form-floating mt-2">
                 <input
-                  type="email"
-                  className="form-control "
-                  placeholder="name@example.com"
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Name"
                   id="floatingInputGrid"
+                  {...register("name", {
+                    required: "Please Enter Your Name!",
+                  })}
                 />
-                <label for="floatingInputGrid">
+                <label htmlFor="floatingInputGrid">
                   Full Name{" "}
                   <span>
                     <FaStarOfLife size={10} className="text-danger mb-2 " />
                   </span>
                 </label>
 
-                <div className="form-floating mt-2">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="name@example.com"
-                    id="floatingInputGrid"
-                  />
-                  <label for="floatingInputGrid">
-                    Mobile Number{" "}
-                    <span>
-                      <FaStarOfLife size={10} className="text-danger mb-2 " />
-                    </span>
-                  </label>
-                </div>
+                {errors.name && (
+                  <p className="text-danger"> {errors.name?.message} </p>
+                )}
+              </div>
 
-                <div className="form-floating mt-2">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="name@example.com"
-                    id="floatingInputGrid"
-                  />
-                  <label for="floatingInputGrid">
-                    Address{" "}
-                    <span>
-                      <FaStarOfLife size={10} className="text-danger mb-2 " />
-                    </span>
-                  </label>
-                </div>
+              {/* mobile number  */}
+              <div className="form-floating mt-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Mobile Number"
+                  id="floatingInputGrid"
+                  {...register("mobile", {
+                    required: "Please Enter Valid Mobile Number!",
+                  })}
+                />
+                <label htmlFor="floatingInputGrid">
+                  Mobile Number{" "}
+                  <span>
+                    <FaStarOfLife size={10} className="text-danger mb-2 " />
+                  </span>
+                </label>
 
-                <div className="form-floating mt-2">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="name@example.com"
-                    id="floatingInputGrid"
-                  />
-                  <label for="floatingInputGrid">
-                    Email Address{" "}
-                    <span>
-                      <FaStarOfLife size={10} className="text-danger mb-2 " />
-                    </span>
-                  </label>
-                </div>
+                {errors.mobile && (
+                  <p className="text-danger"> {errors.mobile?.message} </p>
+                )}
+              </div>
+
+              {/* User address  */}
+              <div className="form-floating mt-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Address"
+                  id="floatingInputGrid"
+                  {...register("address", {
+                    required: "Please Enter Your Full Address!",
+                  })}
+                />
+                <label htmlFor="floatingInputGrid">
+                  Full Address{" "}
+                  <span>
+                    <FaStarOfLife size={10} className="text-danger mb-2 " />
+                  </span>
+                </label>
+
+                {errors.address && (
+                  <p className="text-danger"> {errors.address?.message} </p>
+                )}
+              </div>
+
+              {/* User email  */}
+              <div className="form-floating mt-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="name@example.com"
+                  id="floatingInputGrid"
+                  {...register("email", {
+                    required: "Please Enter Vaild Email!",
+                    pattern: {
+                      value: /\S+@\S+\.\S+/,
+                      message: "Entered value does not match email format!",
+                    },
+                  })}
+                />
+                <label htmlFor="floatingInputGrid">
+                  Email{" "}
+                  <span>
+                    <FaStarOfLife size={10} className="text-danger mb-2 " />
+                  </span>
+                </label>
+
+                {errors.email && (
+                  <p className="text-danger"> {errors.email?.message} </p>
+                )}
+              </div>
+
+              {/* User password  */}
+              <div className="form-floating  mt-2">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="********"
+                  id="floatingInputGrid"
+                  {...register("password", {
+                    required: "Please Enter a Strong Password!",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be 6 characters long",
+                    },
+                    pattern: {
+                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                      message:
+                        "Password must have uppercase, number and special characters",
+                    },
+                  })}
+                />
+                <label htmlFor="floatingInputGrid">
+                  Password{" "}
+                  <span>
+                    <FaStarOfLife size={10} className="text-danger mb-2 " />
+                  </span>
+                </label>
+
+                {errors.password && (
+                  <p className="text-danger"> {errors.password?.message} </p>
+                )}
               </div>
             </div>
-            <div className="form-floating mt-2">
-              <select className="form-select" id="floatingSelectGrid">
-                <option selected>Select Your Role</option>
-                <option value="user">User</option>
+
+            {/* user role  */}
+            <div className=" mt-2">
+              <select
+                className="form-select form-select-lg mt-2"
+                {...register("role", {
+                  required: "Please Select Your Role!",
+                })}
+              >
+                <option value="">Select Your Role</option>
+                <option selected value="user">
+                  User
+                </option>
               </select>
-              <label for="floatingInputGrid">
-                Your Role
-                <span>
-                  <FaStarOfLife size={10} className="text-danger mb-2 " />
-                </span>
-              </label>
+              {errors.role && (
+                <p className="text-danger"> {errors.role?.message} </p>
+              )}
             </div>
           </div>
-          <button type="submit" className="btn btn-primary  my-4">
+
+          {/* submit button  */}
+          <button type="submit" className="btn btn-primary fs-3 fs-bold my-4">
             Register
           </button>
         </form>
