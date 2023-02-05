@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Food from "./Food";
 
+
 export default function ShowProductByCategory({ type, id }) {
 	const [foods, setFoods] = useState([]);
 	const [allFood, setAllFood] = useState([]);
@@ -30,7 +31,8 @@ export default function ShowProductByCategory({ type, id }) {
 
 	return (
 		<div className="my-5">
-			<h3>Related Item</h3>
+			{foods?.length > 0 ? <h3>Related Item</h3> : null}
+
 			<div className="row row-cols-1 row-cols-md-3 g-4">
 				{foods.map((fd) => (
 					<Food food={fd} key={fd.id} />

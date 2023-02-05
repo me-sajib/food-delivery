@@ -17,13 +17,17 @@ span.apple-icon svg {
   justify-content: center;
   align-items: center;
 }
+
 .card-img {
   overflow: hidden;
+  height: 300px;
 }
+
 .card-img-top {
   position: relative;
   transition: 500ms ease 0s;
 }
+
 .card-img-top:hover {
   transform: translateY(-10px);
 }
@@ -34,6 +38,7 @@ span.apple-icon svg {
   justify-content: center;
   align-items: center;
 }
+
 /* large device form width */
 @media (min-width: 768px) {
   .form-width {
@@ -43,14 +48,16 @@ span.apple-icon svg {
 }
 
 /* small device banner-image hide */
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
+
   .banner-images,
   .delivery-logos {
     display: none;
   }
 }
+
 @media (min-width: 320px) and (max-width: 768px) {
-  .sm-none{
+  .sm-none {
     display: none;
   }
- }
+}
