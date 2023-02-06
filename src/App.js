@@ -8,10 +8,14 @@ import Footer from "./components/Footer";
 import FoodById from "./pages/Services/FoodById";
 import PrivateRoute from "./Auth/PrivateRoute";
 
+
+
 function App() {
+
   return (
+    
     <div style={{ width: "100%" }}>
-      <Nav />
+        <Nav  />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -27,6 +31,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
+   
   );
 }
 

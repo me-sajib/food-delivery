@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import auth from "../firebase.config";
 
 const Nav = () => {
+
   const [user, loading] = useAuthState(auth);
   if (loading) {
     return <div>Loading...</div>;
@@ -49,6 +50,7 @@ const Nav = () => {
                 {" "}
                 Join now{" "}
               </Link>
+                
             </>
           )}
         </div>
