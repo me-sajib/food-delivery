@@ -5,6 +5,7 @@ import FastDelivery from "../pages/HowToWork/FastDelivery";
 import WorkSystem from "../pages/HowToWork/WorkSystem";
 import Foods from "../pages/Services/Foods";
 import Banner from "./Banner";
+import BecameAPartner from "./BecameAPartner";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <FastDelivery />
       <Apps />
       <DoorOrder />
+      <BecameAPartner />
     </div>
   );
 };

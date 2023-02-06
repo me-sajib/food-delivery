@@ -10,6 +10,8 @@ const Nav = () => {
     return <div>Loading...</div>;
   }
 
+  console.log(user);
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
