@@ -43,14 +43,14 @@ span.apple-icon svg {
 }
 
 /* small device banner-image hide */
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
   .banner-images,
   .delivery-logos {
     display: none;
   }
 }
 @media (min-width: 320px) and (max-width: 768px) {
-  .sm-none{
+  .sm-none {
     display: none;
   }
- }
+}
