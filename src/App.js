@@ -1,12 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home";
-import Login from "./pages/auth/Login";
-import Nav from "./components/Nav";
-import Register from "./pages/auth/Register";
-import Footer from "./components/Footer";
-import FoodById from "./pages/Services/FoodById";
 import PrivateRoute from "./Auth/PrivateRoute";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import BecameASeller from "./pages/BecameASeller/BecameASeller";
+import FoodById from "./pages/Services/FoodById";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             </PrivateRoute>
           }
         />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

@@ -32,10 +32,13 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
+            <Link to="/became-a-seller" className="nav-link active">
+              Became A Seller
+            </Link>
           </ul>
           {user?.email ? (
             <button className="btn btn-danger" onClick={() => signOut(auth)}>
