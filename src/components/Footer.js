@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../contexts/UseThemeContext";
+import React from "react";
 
 const Footer = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <div className="bg-black text-white">
+    <div className="container pt-5">
       <div className="row">
         <div className="col">
           <h3>Food Delivery</h3>

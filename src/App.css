@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
-body{
-  font-family: 'Roboto', sans-serif;
+body {
+  font-family: "Roboto", sans-serif;
 }
 .app-available {
   display: flex;
@@ -45,7 +45,7 @@ span.apple-icon svg {
   color: black;
 }
 #dark {
-  background-color: black;
+  background-color: #212529;
   color: white;
 }
 /* large device form width */
