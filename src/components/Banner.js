@@ -3,21 +3,23 @@ import banner from "../images/banner-1.png";
 
 const Banner = () => {
 	return (
-		<div className="container">
+		<div className="container py-5">
 			<div className="row banner-container">
 				<div className="col bg-color banner-heading">
 					<div>
-						<h1 className="top-heading">
+						<h1 className="top-heading text-warning">
+							{" "}
 							Your Favorite Food,
 							<br /> delivered your home
 						</h1>
-						<p>
+						<p className="py-4 text-light">
 							Food, drinks, groceries, and more available for
-							delivery and pickup.
+							delivery and pickup and very fast delivery.
 						</p>
-
 						<div className="app-download">
-							<p>Apps Available to download on </p>
+							<p className="text-muted">
+								Apps available to download on
+							</p>
 							<div className="app-available">
 								<span className="apple-icon">
 									<svg
