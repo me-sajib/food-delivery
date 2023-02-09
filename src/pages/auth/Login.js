@@ -20,9 +20,6 @@ const Login = () => {
 	if (user) {
 		navigateToHome("/");
 	}
-	if (loading) {
-		return <Spinner />;
-	}
 	return (
 		<div className="container">
 			<div className="py-5">

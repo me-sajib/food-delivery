@@ -5,7 +5,6 @@ import auth from "../../firebase.config";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
-import Spinner from "../../components/Spinner/Spinner";
 
 const Register = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
@@ -31,10 +30,6 @@ const Register = () => {
 
 	if (user) {
 		navigateToHome("/");
-	}
-
-	if (loading) {
-		return <Spinner />;
 	}
 
 	return (

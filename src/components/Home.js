@@ -8,13 +8,10 @@ import WorkSystem from "../pages/HowToWork/WorkSystem";
 import Foods from "../pages/Services/Foods";
 import Banner from "./Banner";
 import BecameAPartner from "./BecameAPartner";
-import Spinner from "./Spinner/Spinner";
 
 const Home = () => {
-	const [user, loading] = useAuthState(auth);
-	if (loading) {
-		return <Spinner />;
-	}
+	const [user] = useAuthState(auth);
+
 	return (
 		<div>
 			<Banner />

@@ -7,9 +7,9 @@ import Spinner from "./Spinner/Spinner";
 
 const Nav = () => {
 	const [user, loading] = useAuthState(auth);
-	// if (loading) {
-	// 	return <Spinner />;
-	// }
+	if (loading) {
+		return <Spinner />;
+	}
 
 	console.log(user);
 
