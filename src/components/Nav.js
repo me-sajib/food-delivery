@@ -4,19 +4,20 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../contexts/UseThemeContext";
 import auth from "../firebase.config";
+import Spinner from "./Spinner/Spinner";
 
 const Nav = () => {
   const { toggleTheme } = useContext(ThemeContext);
   const [user, loading] = useAuthState(auth);
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   console.log(user);
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg dark">
+      <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#/">
             Navbar
