@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../contexts/UseThemeContext";
 import Apps from "../pages/HowToWork/Apps";
 import DoorOrder from "../pages/HowToWork/DoorOrder";
 import FastDelivery from "../pages/HowToWork/FastDelivery";
@@ -8,8 +9,9 @@ import Banner from "./Banner";
 import BecameAPartner from "./BecameAPartner";
 
 const Home = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div>
+    <div className="home" id={theme}>
       <Banner />
       <Foods />
       <WorkSystem />

@@ -34,6 +34,15 @@ span.apple-icon svg {
   justify-content: center;
   align-items: center;
 }
+/* light and dark theme */
+#light {
+  background-color: white;
+  color: black;
+}
+#dark {
+  background-color: black;
+  color: white;
+}
 /* large device form width */
 @media (min-width: 768px) {
   .form-width {
