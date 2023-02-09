@@ -1,6 +1,7 @@
 import React from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../components/Spinner/Spinner";
 import auth from "../../firebase.config";
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
 		navigateToHome("/");
 	}
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Spinner />;
 	}
 	return (
 		<div className="container">

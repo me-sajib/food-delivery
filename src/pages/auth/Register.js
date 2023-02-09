@@ -4,8 +4,8 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.config";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { FaStarOfLife } from "react-icons/fa";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Register = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
@@ -34,7 +34,7 @@ const Register = () => {
 	}
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Spinner />;
 	}
 
 	return (
