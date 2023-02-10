@@ -10,19 +10,19 @@ import Banner from "./Banner";
 import BecameAPartner from "./BecameAPartner";
 
 const Home = () => {
-	const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
-	return (
-		<div>
-			<Banner />
-			<Foods />
-			<WorkSystem />
-			<FastDelivery />
-			<Apps />
-			<DoorOrder />
-			{user?.email ? "" : <BecameAPartner />}
-		</div>
-	);
+  return (
+    <div>
+      <Banner />
+      <Foods />
+      <WorkSystem />
+      <FastDelivery />
+      <Apps />
+      <DoorOrder />
+      {user?.email ? "" : <BecameAPartner />}
+    </div>
+  );
 };
 
 export default Home;
