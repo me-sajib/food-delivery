@@ -8,6 +8,12 @@ import Nav from "./components/Nav";
 import { ThemeContext } from "./contexts/UseThemeContext";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import AddProducts from "./pages/Dashboard/AddProducts/AddProducts";
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
+import Orders from "./pages/Dashboard/Orders/Orders";
+import PendingOrder from "./pages/Dashboard/PendingOrder/PendingOrder";
+import Products from "./pages/Dashboard/Products/Products";
+import SuccessfulOrder from "./pages/Dashboard/SuccessfulOrder/SuccessfulOrder";
 import FoodById from "./pages/Services/FoodById";
 
 function App() {
@@ -25,6 +31,20 @@ function App() {
             </PrivateRoute>
           }
         />
+
+
+
+        <Route path="/dashboard" element={<Dashboard />}>
+
+          <Route path="orders" element={<Orders />} />
+          <Route path="successfulOrder" element={<SuccessfulOrder />} />
+          <Route path="pendingOrder" element={<PendingOrder />} />
+          <Route path="products" element={<Products />} />
+          <Route path="addProduct" element={<AddProducts />} />
+        </Route>
+
+
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
