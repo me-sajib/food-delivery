@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { data } from './data/data';
+import React from 'react';
+import { ThreeDots } from 'react-loader-spinner';
+import { data } from '../data/data';
 import './Orders.css'
 // import data from './data/data';
 // import { ThreeDots } from 'react-loader-spinner';
@@ -8,7 +9,7 @@ console.log(data)
 
 
 
-const ProductList = () => {
+const Orders = () => {
     // const [allOrders, setAllOrders] = useState([]);
     // console.log(allOrders);
 
@@ -27,8 +28,9 @@ const ProductList = () => {
                     <tr className="text-center">
                         <th style={{ width: '20%' }}>Name</th>
                         <th style={{ width: '30%' }}>Email</th>
-                        <th style={{ width: '30%' }}>Product Title</th>
-                        <th style={{ width: '20%' }}>Price</th>
+                        <th style={{ width: '20%' }}>Product Title</th>
+                        <th style={{ width: '15%' }}>Price</th>
+                        <th style={{ width: '15%' }}>Status</th>
                     </tr>
                     {
                         data.map((product) => <tr key={product.id}>
@@ -36,13 +38,13 @@ const ProductList = () => {
                             <td>{product.email}</td>
                             <td>{product.title}</td>
                             <td>{product.price}</td>
+                            <td>{product.status}</td>
                         </tr>)
                     }
-                </table> : <h3>Loding...</h3>}
-                {/* <ThreeDots width="100" /> */}
+                </table> : <ThreeDots width="100" />}
             </div>
         </div>
     );
 };
 
-export default ProductList;
+export default Orders;
