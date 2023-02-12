@@ -1,0 +1,21 @@
+#product {
+  margin-top: 10px;
+}
+#product table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: scroll;
+}
+#product td,
+#product th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+#product tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#product img {
+  width: 313px;
+}

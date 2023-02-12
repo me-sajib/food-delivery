@@ -1,13 +1,10 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import auth from '../../../firebase.config';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faSquarePlus } from '@fortawesome/free-solid-svg-icons'
-// import { faFirstOrderAlt } from '@fortawesome/free-brands-svg-icons';
 import './Dashboard.css';
 import classes from "./Dashboard.module.css";
-// import useAuth from '../../../Hooks/useAuth';
+
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -29,7 +26,7 @@ const Dashboard = () => {
                         </NavLink>
                     </li> : " "}
 
-                    {user.email ? <li className="nav-item">
+                    {user?.email ? <li className="nav-item">
                         <NavLink to="pendingOrder" className={(navInfo) =>
                             navInfo.isActive ? classes.active : "nav-link text-white"
                         } aria-current="page">
@@ -47,6 +44,7 @@ const Dashboard = () => {
                         </NavLink>
                     </li> : ""}
 
+
                     {user?.email ? <li className="nav-item">
                         <NavLink to="addProduct" className={(navInfo) =>
                             navInfo.isActive ? classes.active : "nav-link text-white"
@@ -54,7 +52,7 @@ const Dashboard = () => {
                             {/* <FontAwesomeIcon className='text-danger' icon={faSquarePlus} /> */}
                             <span className="ms-2">Add Product</span>
                         </NavLink>
-                    </li> : ""}
+                    </li> : " "}
 
 
                 </ul>

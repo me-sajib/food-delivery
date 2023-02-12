@@ -37,6 +37,11 @@ const Nav = () => {
                 Home
               </Link>
             </li>
+            {user?.email ? <li className='nav-item'>
+              <Link className="nav-link active" aria-current="page" to="/dashboard/orders">
+                Dashboard
+              </Link>
+            </li> : ""}
           </ul>
           <div className="pe-4">
             <div className="form-check form-switch">

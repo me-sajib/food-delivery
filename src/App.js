@@ -33,16 +33,13 @@ function App() {
         />
 
 
-
-        <Route path="/dashboard" element={<Dashboard />}>
-
+        <Route path="dashboard" element={<Dashboard />}>
           <Route path="orders" element={<Orders />} />
           <Route path="successfulOrder" element={<SuccessfulOrder />} />
           <Route path="pendingOrder" element={<PendingOrder />} />
           <Route path="products" element={<Products />} />
           <Route path="addProduct" element={<AddProducts />} />
         </Route>
-
 
 
         <Route path="/login" element={<Login />} />
