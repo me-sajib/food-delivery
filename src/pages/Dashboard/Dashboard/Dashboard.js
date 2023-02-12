@@ -26,7 +26,7 @@ const Dashboard = () => {
                         </NavLink>
                     </li> : " "}
 
-                    {user.email ? <li className="nav-item">
+                    {user?.email ? <li className="nav-item">
                         <NavLink to="pendingOrder" className={(navInfo) =>
                             navInfo.isActive ? classes.active : "nav-link text-white"
                         } aria-current="page">

@@ -1,9 +1,9 @@
 export const data = [
     {
         "id": "5dc51077-8e07-4322-8786-b94e30fad07b",
-        "name": "tarek mahmud",
+        "name": "Sajib",
         "title": "Delicious Pizza",
-        "email": "tarek@gmail.com",
+        "email": "sajib@llc.com",
         "status": "successfull",
         "price": 4545
     },

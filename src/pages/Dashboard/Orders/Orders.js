@@ -2,22 +2,14 @@ import React from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { data } from '../data/data';
 import './Orders.css'
-// import data from './data/data';
-// import { ThreeDots } from 'react-loader-spinner';
+
 
 console.log(data)
 
 
 
 const Orders = () => {
-    // const [allOrders, setAllOrders] = useState([]);
-    // console.log(allOrders);
 
-    // useEffect(() => {
-    //     fetch(orders)
-    //         .then((res) => res.json())
-    //         .then((data) => setAllOrders(data))
-    // }, [allOrders.length])
 
 
     return (
