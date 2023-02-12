@@ -13,8 +13,6 @@ const Nav = () => {
     return <Spinner />;
   }
 
-  console.log(user);
-
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">

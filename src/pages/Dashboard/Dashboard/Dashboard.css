@@ -1,0 +1,36 @@
+/* .dashboard {
+  background: #ece7e7e0;
+} */
+
+.bg {
+  background: #111011;
+}
+
+.side-bar {
+  width: 22%;
+  height: 100vh;
+}
+
+.dashboard-content {
+  width: 78%;
+  height: 100vh;
+  position: absolute;
+  overflow-y: scroll;
+  right: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard a:hover {
+  color: #fff;
+}
+
+.nav-link .fa {
+  transition: all 1s;
+}
+
+.nav-link:hover .fa {
+  transform: rotate(360deg);
+}
