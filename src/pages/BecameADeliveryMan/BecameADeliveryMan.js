@@ -1,10 +1,11 @@
 import React from "react";
 
-const BecameASeller = () => {
+const BecameADeliveryMan = () => {
   return (
-    <div className="m-5 pb-5">
+    <div className="w-50 mx-auto m-4">
+      <h2 className="text-center py-3">Became a new Delivery Man</h2>
       <form className="row g-3 needs-validation" noValidate>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="validationCustom01" className="form-label">
             First name
           </label>
@@ -16,7 +17,7 @@ const BecameASeller = () => {
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="validationCustom02" className="form-label">
             Last name
           </label>
@@ -28,7 +29,7 @@ const BecameASeller = () => {
           />
           <div className="valid-feedback">Looks good!</div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="validationCustomUsername" className="form-label">
             Email
           </label>
@@ -55,7 +56,7 @@ const BecameASeller = () => {
           />
           <div className="invalid-feedback">Please provide a valid city.</div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-6">
           <label htmlFor="validationCustom05" className="form-label">
             Zip
           </label>
@@ -67,7 +68,7 @@ const BecameASeller = () => {
           />
           <div className="invalid-feedback">Please provide a valid zip.</div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-6">
           <label htmlFor="validationCustom05" className="form-label">
             Picture URL
           </label>
@@ -75,6 +76,18 @@ const BecameASeller = () => {
             type="text"
             className="form-control"
             id="validationCustom05"
+            required
+          />
+          <div className="invalid-feedback">Please provide a valid zip.</div>
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="validationCustom05" className="form-label">
+            Bike Details
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="validationCustom06"
             required
           />
           <div className="invalid-feedback">Please provide a valid zip.</div>
@@ -106,4 +119,4 @@ const BecameASeller = () => {
   );
 };
 
-export default BecameASeller;
+export default BecameADeliveryMan;

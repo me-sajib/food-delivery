@@ -9,6 +9,7 @@ import { ThemeContext } from "./contexts/UseThemeContext";
 import AllFood from "./pages/AllFood/AllFood";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import BecameADeliveryMan from "./pages/BecameADeliveryMan/BecameADeliveryMan";
 import AddProducts from "./pages/Dashboard/AddProducts/AddProducts";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Orders from "./pages/Dashboard/Orders/Orders";
@@ -33,6 +34,7 @@ function App() {
           }
         />
         <Route path="all-food" element={<AllFood />} />
+        <Route path="became-a-delivery-man" element={<BecameADeliveryMan />} />
 
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="orders" element={<Orders />} />
