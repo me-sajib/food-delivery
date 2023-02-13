@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import { ThemeContext } from "./contexts/UseThemeContext";
+import AllFood from "./pages/AllFood/AllFood";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import AddProducts from "./pages/Dashboard/AddProducts/AddProducts";
@@ -31,7 +32,7 @@ function App() {
             </PrivateRoute>
           }
         />
-
+        <Route path="all-food" element={<AllFood />} />
 
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="orders" element={<Orders />} />
@@ -40,7 +41,6 @@ function App() {
           <Route path="products" element={<Products />} />
           <Route path="addProduct" element={<AddProducts />} />
         </Route>
-
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
