@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { data } from '../data/data';
 import './PendingOrder.css'
 
@@ -7,10 +8,11 @@ import './PendingOrder.css'
 const PendingOrder = () => {
 
     let pendingData = data.filter(p => p.status === "pending");
+    const { theme } = useContext(ThemeContext);
 
     return (
-        <div id='orders'>
-            <div className="container">
+        <div id='pendingOrders'>
+            <div className={theme === 'dark' ? "dark container" : "light container"}>
                 {pendingData?.length ? <table className='mt-4'>
                     <tr className="text-center">
                         <th style={{ width: '20%' }}>Name</th>

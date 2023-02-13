@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { data } from '../data/data';
 import './SuccessfulOrder.css';
 
@@ -7,11 +8,12 @@ import './SuccessfulOrder.css';
 const SuccessfulOrder = () => {
 
     let successfullData = data.filter(s => s.status === "successfull");
+    const { theme } = useContext(ThemeContext);
 
 
     return (
-        <div id='orders'>
-            <div className="container">
+        <div id='successfullOrders'>
+            <div className={theme === 'dark' ? "dark container" : "light container"}>
                 {successfullData.length ? <table className='mt-4'>
                     <tr className="text-center">
                         <th style={{ width: '20%' }}>Name</th>

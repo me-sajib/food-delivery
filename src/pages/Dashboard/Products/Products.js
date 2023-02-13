@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { order } from '../data/order';
 import './Products.css';
 
 const Products = () => {
+
+    const { theme } = useContext(ThemeContext);
+
+
 
     console.log(order);
 
@@ -17,7 +22,7 @@ const Products = () => {
 
     return (
         <div id='product'>
-            <div className="container">
+            <div className={theme === 'dark' ? "dark container" : "light container"}>
                 {order.length ? <table className='mt-4'>
                     <tr className="text-center">
                         <th style={{ width: '30%' }}>Image</th>

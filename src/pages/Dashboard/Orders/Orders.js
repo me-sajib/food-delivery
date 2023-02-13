@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { data } from '../data/data';
 import './Orders.css'
 
 
-console.log(data)
-
-
-
 const Orders = () => {
 
+    const { theme } = useContext(ThemeContext);
 
 
     return (
         <div id='orders'>
-            <div className="container">
-                {/* <h2 className='text-center'>Order List</h2> */}
+            <div className={theme === 'dark' ? "dark container" : "light container"}>
                 {data.length ? <table className='mt-4'>
                     <tr className="text-center">
                         <th style={{ width: '20%' }}>Name</th>
