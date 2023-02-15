@@ -83,7 +83,7 @@ const AddProduct = () => {
                                 </div>
                             </div>
                         </div>
-                        <input style={{ background: '#18052ba1', border: 'none' }} className='mt-5 text-white bg-darkgray' type="submit" value="Submit" />
+                        <input style={{ background: '#18052ba1', border: 'none' }} className='mt-2 text-white bg-darkgray' type="submit" value="Submit" />
                     </form>
 
                 </div>

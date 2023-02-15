@@ -20,9 +20,10 @@
 #addProduct select {
   padding: 12.5px;
 }
+
 #addProduct textarea {
-  width: 97.3%;
-  margin: 13px;
+  width: 100%;
+  margin: 13px 0;
 }
 
 #addProduct .image-upload {

@@ -1,17 +1,12 @@
 import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import Pagination from '../../../components/Pagination/Pagination';
 import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { order } from '../data/order';
 import './Products.css';
 
 const Products = () => {
-
     const { theme } = useContext(ThemeContext);
-
-
-
-    console.log(order);
-
     const handleDelete = () => {
         alert("coming dalete feature...")
     }
@@ -19,7 +14,6 @@ const Products = () => {
     const handleUpdate = () => {
         alert("coming update feature...")
     }
-
     return (
         <div id='product'>
             <div className={theme === 'dark' ? "dark container" : "light container"}>
@@ -31,7 +25,9 @@ const Products = () => {
                     </tr>
                     {
                         order.map((product) => <tr key={product.id}>
-                            <td><img src={product.image} alt="" /></td>
+                            <td>
+                                <img src={product.image} alt={product.title} />
+                            </td>
                             <td>
                                 <h2>Title: {product.name}</h2>
                                 <p>Price: {product.price}</p>
