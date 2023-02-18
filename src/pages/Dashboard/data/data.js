@@ -81,7 +81,7 @@ export const data = [
     },
     {
         "id": "11",
-        "name": "Tarek Mahmud",
+        "name": "Rayhan Rana",
         "title": "Delicious Pizza",
         "email": "tarekmahmud319@gmail.com",
         "status": "successfull",
@@ -89,7 +89,7 @@ export const data = [
     },
     {
         "id": "12",
-        "name": "Tarek Mahmud",
+        "name": "Rayhan Mahmud",
         "title": "Delicious Pizza",
         "email": "tarekmahmud319@gmail.com",
         "status": "pending",
@@ -97,7 +97,7 @@ export const data = [
     },
     {
         "id": "13",
-        "name": "Tarek Mahmud",
+        "name": "Tauhid Mahmud",
         "title": "Delicious Pizza",
         "email": "tarekmahmud319@gmail.com",
         "status": "pending",

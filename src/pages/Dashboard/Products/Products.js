@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
-import Pagination from '../../../components/Pagination/Pagination';
 import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { order } from '../data/order';
 import './Products.css';

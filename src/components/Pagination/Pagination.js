@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { Items } from '../../pages/Dashboard/Orders/Orders';
-import { ProductItems } from '../../pages/Dashboard/Products/Products';
+import { PaginationItem } from './PaginationItem';
 
 
 
 function Pagination({ itemsPerPage, data }) {
-
     const [pageOffset, setPageOffset] = useState(0);
 
     const endOffset = pageOffset + itemsPerPage;
     console.log(`Loading items from ${pageOffset} to ${endOffset}`);
     const currentItems = data?.slice(pageOffset, endOffset);
-    const pageCount = Math.ceil(data?.length / itemsPerPage);
+    const pageCount = Math.ceil(data.length / itemsPerPage);
 
     const handlePageChange = (event) => {
-        setPageOffset(event.selected);
+        const newOffset = (event.selected * itemsPerPage) % data.length;
+        setPageOffset(newOffset);
     };
 
     return (
         <>
-            <Items currentItems={currentItems} key={currentItems.map(item => item.id)} />
+            <PaginationItem currentItems={currentItems} />
             <ReactPaginate
                 previousLabel="Previous"
                 nextLabel="Next"
@@ -35,7 +34,7 @@ function Pagination({ itemsPerPage, data }) {
                 breakLinkClassName="page-link"
                 pageCount={pageCount}
                 marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
+                pageRangeDisplayed={2}
                 onPageChange={handlePageChange}
                 containerClassName="pagination"
                 activeClassName="active"
