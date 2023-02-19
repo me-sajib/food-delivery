@@ -8,6 +8,7 @@ import Spinner from "./Spinner/Spinner";
 
 const Nav = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+
   const [user, loading] = useAuthState(auth);
   if (loading) {
     return <Spinner />;

@@ -13,9 +13,21 @@
   text-align: left;
   padding: 8px;
 }
-#product tr:nth-child(even) {
-  background-color: #dddddd;
+/* #product tr:nth-child(even) {
+  background-color: #2f3b4c;
+  color: white;
+} */
+
+#product .dark tr:nth-child(even) {
+  background-color: #141619;
+  color: white;
 }
+
+#product .light tr:nth-child(even) {
+  background-color: #dddddd;
+  color: black;
+}
+
 #product img {
   width: 313px;
 }

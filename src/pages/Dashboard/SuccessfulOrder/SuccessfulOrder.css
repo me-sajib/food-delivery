@@ -1,17 +1,24 @@
-#orders {
+#successfullOrders {
   margin-top: 25px;
 }
-#orders table {
+#successfullOrders table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-#orders td,
-#orders th {
+#successfullOrders td,
+#successfullOrders th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
-#orders tr:nth-child(even) {
+
+#successfullOrders .dark tr:nth-child(even) {
+  background-color: #e3ebee59;
+  color: white;
+}
+
+#successfullOrders .light tr:nth-child(even) {
   background-color: #dddddd;
+  color: black;
 }
