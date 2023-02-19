@@ -17,9 +17,9 @@ const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">
-        <a className="navbar-brand" href="#/">
+        <Link className="navbar-brand" to="/">
           FD
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -38,11 +38,19 @@ const Nav = () => {
                 Home
               </Link>
             </li>
-            {user?.email ? <li className='nav-item'>
-              <Link className="nav-link active" aria-current="page" to="/dashboard/orders">
-                Dashboard
-              </Link>
-            </li> : ""}
+            {user?.email ? (
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/dashboard/orders"
+                >
+                  Dashboard
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
           <div className="pe-4">
             <div className="form-check form-switch">
