@@ -1,12 +1,13 @@
 import React from "react";
-import seller from "../../images/how-works.png";
+import { Link } from "react-router-dom";
 import partner from "../../images/how-works-.png";
 import apps from "../../images/how-works-3.png";
+import seller from "../../images/how-works.png";
 
 const WorkSystem = () => {
   return (
-    <div className="container py-2 pb-5">
-      <h1 className="text-center py-5">Let’s see how it works</h1>
+    <div className="container py-5">
+      <h1 className="text-center pb-5">Let’s see how it works</h1>
       {/* 3 item show with 3 column by using grid */}
       <div className="row gx-5 text-center">
         <div className="col-lg-4 col-md-6 col-sm-12 ">
@@ -16,7 +17,7 @@ const WorkSystem = () => {
             As a delivery driver, you'll make reliable money—working anytime,
             anywhere.
           </p>
-          <a href="/#">Start Earning -</a>
+          <Link to="/became-a-delivery-man">Start Earning -</Link>
         </div>
 
         <div className="col-lg-4 col-md-6 col-sm-12">

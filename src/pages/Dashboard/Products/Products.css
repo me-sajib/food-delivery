@@ -1,0 +1,33 @@
+#product {
+  margin-top: 10px;
+}
+#product table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: scroll;
+}
+#product td,
+#product th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+/* #product tr:nth-child(even) {
+  background-color: #2f3b4c;
+  color: white;
+} */
+
+#product .dark tr:nth-child(even) {
+  background-color: #141619;
+  color: white;
+}
+
+#product .light tr:nth-child(even) {
+  background-color: #dddddd;
+  color: black;
+}
+
+#product img {
+  width: 313px;
+}

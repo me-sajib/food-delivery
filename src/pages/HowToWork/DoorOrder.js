@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import orderBoy from "../../images/order-door.png";
 
 const DoorOrder = () => {
@@ -11,7 +12,9 @@ const DoorOrder = () => {
             Pick one of our stock themes, or create your custom theme with the
             most advanced theme editor on any online.
           </p>
-          <button className="btn btn-primary">order more</button>
+          <Link to="/all-food" className="btn btn-warning">
+            order more
+          </Link>
         </div>
 
         <div className="order-boy sm-none">

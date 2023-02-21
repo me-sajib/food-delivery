@@ -1,9 +1,12 @@
 import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
 import registerImage from "../../images/banner-1.png";
+
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -51,6 +54,7 @@ const Register = () => {
   // useEffect(() => {
   //   navigateToHome("/");
   // }, [navigateToHome]);
+
   if (user) {
     navigateToHome("/");
   }

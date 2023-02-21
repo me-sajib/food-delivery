@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
 .app-available {
   display: flex;
   gap: 20px;
@@ -34,6 +39,15 @@ span.apple-icon svg {
   justify-content: center;
   align-items: center;
 }
+/* light and dark theme */
+#light {
+  background-color: white;
+  color: black;
+}
+#dark {
+  background-color: #212529;
+  color: white;
+}
 /* large device form width */
 @media (min-width: 768px) {
   .form-width {
@@ -43,14 +57,14 @@ span.apple-icon svg {
 }
 
 /* small device banner-image hide */
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
   .banner-images,
   .delivery-logos {
     display: none;
   }
 }
 @media (min-width: 320px) and (max-width: 768px) {
-  .sm-none{
+  .sm-none {
     display: none;
   }
  }
@@ -64,4 +78,5 @@ input[type=number]::-webkit-outer-spin-button {
 .form-control:focus{
   box-shadow: 0 0 0 0.1rem transparent;
 }
+
 

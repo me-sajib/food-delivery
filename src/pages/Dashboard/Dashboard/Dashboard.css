@@ -1,0 +1,45 @@
+.bg {
+  background: #111011;
+}
+
+.side-bar {
+  width: 22%;
+  height: 100vh;
+}
+
+/* @media only screen and (max-width: 992px) {
+  .side-bar {
+    width: 0%;
+    visibility: hidden;
+    padding: 0rem !important;
+  }
+
+  .dashboard-content {
+    width: 100% !important;
+    left: 0;
+  }
+} */
+
+.dashboard-content {
+  width: 78%;
+  height: 100vh;
+  position: absolute;
+  overflow-y: scroll;
+  right: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard a:hover {
+  color: #fff;
+}
+
+.nav-link .fa {
+  transition: all 1s;
+}
+
+.nav-link:hover .fa {
+  transform: rotate(360deg);
+}
