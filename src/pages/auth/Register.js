@@ -4,21 +4,20 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.config";
-import { useNavigate } from "react-router-dom";
 import registerImage from "../../images/banner-1.png";
 
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-    const [passwordError, setPasswordError] = useState('')
-    const [passwordWarning, setPasswordWarning] = useState('')
+  const [passwordError, setPasswordError] = useState('')
+  const [passwordWarning, setPasswordWarning] = useState('')
 
-    const passwordCheck=  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  const passwordCheck = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
   const navigateToHome = useNavigate();
 
-  
+
 
   const registerUser = (e) => {
     e.preventDefault();
@@ -33,7 +32,7 @@ const Register = () => {
     const role = form.role.value;
 
 
-    if(!password.match(passwordCheck)){
+    if (!password.match(passwordCheck)) {
       return setPasswordError('The password must be at least 8 characters and contain lowercase, uppercase, number and special characters')
     }
 
@@ -41,10 +40,10 @@ const Register = () => {
 
     console.log(lastName, phone, role);
 
-    if(password.match(passwordCheck)){
+    if (password.match(passwordCheck)) {
       setPasswordError('')
       createUserWithEmailAndPassword(email, password);
-    updateProfile(auth, { displayName: firstName });
+      updateProfile(auth, { displayName: firstName });
     }
   };
   if (error) {
@@ -105,8 +104,8 @@ const Register = () => {
             Facebook
           </button>
         </div>
-         {passwordError && <p className="text-danger fw-semibold text-center">{passwordError}</p>}
-         {passwordWarning && <p className="text-warning text-center fw-semibold">{passwordWarning}</p>}
+        {passwordError && <p className="text-danger fw-semibold text-center">{passwordError}</p>}
+        {passwordWarning && <p className="text-warning text-center fw-semibold">{passwordWarning}</p>}
         <form onSubmit={registerUser}>
           <div className="row mb-4">
             <div className="col">
@@ -189,8 +188,8 @@ const Register = () => {
               Password
             </label>
             <input
-              onFocus={()=>{!passwordError && setPasswordWarning('Password must be strong')}}
-              onBlur={()=>setPasswordWarning('')}
+              onFocus={() => { !passwordError && setPasswordWarning('Password must be strong') }}
+              onBlur={() => setPasswordWarning('')}
               type="password"
               placeholder="XXXXXXXX"
               id="form3Example4"
@@ -221,9 +220,9 @@ const Register = () => {
           </div>
 
           <div className="d-flex justify-content-end">
-          <button type="submit" className="btn btn-warning text-white rounded-0 fw-semibold btn-block mb-4">
-            Sign up
-          </button>
+            <button type="submit" className="btn btn-warning text-white rounded-0 fw-semibold btn-block mb-4">
+              Sign up
+            </button>
           </div>
         </form>
       </div>
