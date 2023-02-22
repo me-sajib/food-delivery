@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const BecameADeliveryMan = () => {
+  const [disabled, setDisabled] = useState(true);
   return (
-    <div className="w-50 mx-auto m-4">
-      <h2 className="text-center py-3">Became A Delivery Man</h2>
-      <form className="row g-3 needs-validation" >
+    <div className="sm-width mx-auto my-4 px-3">
+      <h3 className="text-center py-3">Became A Delivery Man</h3>
+      <form className="row g-4 needs-validation" >
         <div className="col-md-6">
           <label htmlFor="validationCustom01" className="form-label">
             First name
@@ -100,6 +101,7 @@ const BecameADeliveryMan = () => {
             <input
               className="form-check-input"
               type="checkbox"
+              onClick={() => setDisabled(!disabled)}
               value=""
               id="invalidCheck"
               required
@@ -113,7 +115,7 @@ const BecameADeliveryMan = () => {
           </div>
         </div>
         <div className="col-12">
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" disabled={disabled} type="submit">
             Submit
           </button>
         </div>
