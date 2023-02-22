@@ -1,7 +1,7 @@
 import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.config";
 import registerImage from "../../images/banner-1.png";
 
@@ -203,11 +203,11 @@ const Register = () => {
                             <option>Seller</option>
                         </select>
                     </div>
-
-                    <div className="d-flex justify-content-end">
+                    <div>
                         <button type="submit" className="btn btn-warning text-white rounded-0 fw-semibold btn-block mb-4">
                             Sign up
                         </button>
+                        <p>already you have an account? <Link to="/login">login</Link> now.</p>
                     </div>
                 </form>
             </div>
