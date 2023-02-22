@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import { ThemeContext } from '../../../contexts/UseThemeContext';
 import { order } from '../data/order';
 import './Products.css';
 
 const Products = () => {
-
-    console.log(order);
-
+    const { theme } = useContext(ThemeContext);
     const handleDelete = () => {
         alert("coming dalete feature...")
     }
@@ -14,10 +13,9 @@ const Products = () => {
     const handleUpdate = () => {
         alert("coming update feature...")
     }
-
     return (
         <div id='product'>
-            <div className="container">
+            <div className={theme === 'dark' ? "dark container" : "light container"}>
                 {order.length ? <table className='mt-4'>
                     <tr className="text-center">
                         <th style={{ width: '30%' }}>Image</th>
@@ -26,7 +24,9 @@ const Products = () => {
                     </tr>
                     {
                         order.map((product) => <tr key={product.id}>
-                            <td><img src={product.image} alt="" /></td>
+                            <td>
+                                <img src={product.image} alt={product.title} />
+                            </td>
                             <td>
                                 <h2>Title: {product.name}</h2>
                                 <p>Price: {product.price}</p>

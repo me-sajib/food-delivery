@@ -1,17 +1,24 @@
-#orders {
+#pendingOrders {
   margin-top: 25px;
 }
-#orders table {
+#pendingOrders table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-#orders td,
-#orders th {
+#pendingOrders td,
+#pendingOrders th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
-#orders tr:nth-child(even) {
+
+#pendingOrders .dark tr:nth-child(even) {
+  background-color: #e3ebee59;
+  color: white;
+}
+
+#pendingOrders .light tr:nth-child(even) {
   background-color: #dddddd;
+  color: black;
 }

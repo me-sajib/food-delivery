@@ -12,6 +12,13 @@
   text-align: left;
   padding: 8px;
 }
-#orders tr:nth-child(even) {
+
+#orders .dark tr:nth-child(even) {
+  background-color: #e3ebee59;
+  color: white;
+}
+
+#orders .light tr:nth-child(even) {
   background-color: #dddddd;
+  color: black;
 }
