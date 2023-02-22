@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const BecameADeliveryMan = () => {
   const [disabled, setDisabled] = useState(true);
@@ -118,6 +119,7 @@ const BecameADeliveryMan = () => {
           <button className="btn btn-primary" disabled={disabled} type="submit">
             Submit
           </button>
+          <Link to="/" className="btn-link btn">Back</Link>
         </div>
       </form>
     </div>
