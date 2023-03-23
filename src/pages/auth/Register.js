@@ -1,24 +1,18 @@
-import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
-import auth from "../../firebase.config";
+import { Link } from "react-router-dom";
+import Form from "../../components/Form";
+import Spinner from "../../components/Spinner/Spinner";
+import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [formData, setFormData] = useState([]);
+  const { RegisterUser, authError, isLoading } = useAuth();
 
-  const navigateToHome = useNavigate();
 
-  const [passwordError, setPasswordError] = useState("");
-  const registerUser = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(name, email, password);
+  const handleSubmit = (event) => {
+    const { email, password, name } = formData;
+
     if (password.length < 6) {
       setPasswordError("Password should be at least 6 characters");
       return;
@@ -31,17 +25,20 @@ const Register = () => {
       setPasswordError("Please Provide at least one special Character");
       return;
     }
-
-    createUserWithEmailAndPassword(email, password);
-    updateProfile(auth, { displayName: name });
-    form.reset();
+    RegisterUser(email, password, name)
+    event.preventDefault();
   };
-  if (error) {
-    console.error(error);
-  }
 
-  if (user) {
-    navigateToHome("/");
+  const [passwordError, setPasswordError] = useState("");
+
+  const fields = [
+    { type: "name", name: "name", value: "", required: true, id: "form2Example1", label: 'Name', class: 'form-control' },
+    { type: "email", name: "email", value: "", required: true, id: "form2Example2", label: 'email address', class: 'form-control' },
+    { type: "password", name: "password", value: "", required: true, id: "form2Example3", label: 'password', class: 'form-control' },
+  ]
+
+  if (isLoading) {
+    return <Spinner />;
   }
 
   return (
@@ -50,53 +47,15 @@ const Register = () => {
         <h1 className="text-warning text-center py-4">
           Become a our member? Register now
         </h1>
-        <form className="w-50 mx-auto" onSubmit={registerUser}>
-          <div className="form-outline mb-3">
-            <label className="form-label" for="form2Example1">
-              Username
-            </label>
-            <input
-              type="name"
-              name="name"
-              placeholder="enter your username"
-              id="form2Example1"
-              className="form-control"
-            />
-          </div>
-          <div className="form-outline mb-3">
-            <label className="form-label" for="form2Example1">
-              Email address
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="enter your email"
-              id="form2Example1"
-              className="form-control"
-            />
-          </div>
-          <div className="form-outline mb-3">
-            <label className="form-label" for="form2Example2">
-              Password
-            </label>
-            <input
-              name="password"
-              type="password"
-              placeholder="enter your password"
-              id="form2Example2"
-              className="form-control"
-            />
-          </div>
-          <p className="text-danger">{passwordError}</p>
-          <div className="mx-auto">
-            <button className="btn btn-primary ps-5 pe-5" type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
+
+        <Form fields={fields} formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} />
+
+
 
         <div className="d-flex justify-content-center align-items-baseline py-3">
           <p>Already have an Account? </p>
+          <p className="text-danger">{passwordError}</p>
+          <p className="text-danger">{authError}</p>
           <Link to="/login">Login</Link>
         </div>
 

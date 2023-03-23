@@ -1,18 +1,12 @@
-import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../contexts/UseThemeContext";
-import auth from "../firebase.config";
-import Spinner from "./Spinner/Spinner";
+import useAuth from "../Hooks/useAuth";
 
 const Nav = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { logout, user } = useAuth();
 
-  const [user, loading] = useAuthState(auth);
-  if (loading) {
-    return <Spinner />;
-  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -70,7 +64,7 @@ const Nav = () => {
             </div>
           </div>
           {user?.email ? (
-            <button className="btn btn-danger" onClick={() => signOut(auth)}>
+            <button className="btn btn-danger" onClick={() => logout()}>
               Sign Out
             </button>
           ) : (

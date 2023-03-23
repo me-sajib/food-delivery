@@ -1,6 +1,5 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../firebase.config";
+import useAuth from "../Hooks/useAuth";
 import Apps from "../pages/HowToWork/Apps";
 import DoorOrder from "../pages/HowToWork/DoorOrder";
 import FastDelivery from "../pages/HowToWork/FastDelivery";
@@ -10,7 +9,7 @@ import Banner from "./Banner";
 import BecameAPartner from "./BecameAPartner";
 
 const Home = () => {
-  const [user] = useAuthState(auth);
+  const { user } = useAuth();
 
   return (
     <div>

@@ -4,7 +4,6 @@ import Food from "./Food";
 
 const Foods = () => {
   const [foods, setFoods] = useState([]);
-  console.log(foods);
   useEffect(() => {
     fetch("food.json")
       .then((res) => res.json())

@@ -8,7 +8,6 @@ function Pagination({ itemsPerPage, data }) {
     const [pageOffset, setPageOffset] = useState(0);
 
     const endOffset = pageOffset + itemsPerPage;
-    console.log(`Loading items from ${pageOffset} to ${endOffset}`);
     const currentItems = data?.slice(pageOffset, endOffset);
     const pageCount = Math.ceil(data.length / itemsPerPage);
 

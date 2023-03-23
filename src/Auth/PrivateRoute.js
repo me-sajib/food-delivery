@@ -1,14 +1,12 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Navigate, useLocation } from "react-router-dom";
 import Spinner from "../components/Spinner/Spinner";
-import auth from "../firebase.config";
-// import Spinner from "../Pages/Shared/Spinner";
+import useAuth from "../Hooks/useAuth";
 
 const PrivateRoute = ({ children }) => {
-	const [user, loading] = useAuthState(auth);
+	const { isLoading, user } = useAuth();
 	const location = useLocation();
-	if (loading) {
+	if (isLoading) {
 		return <Spinner />;
 	}
 	if (!user) {

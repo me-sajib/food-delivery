@@ -5,6 +5,7 @@ import PrivateRoute from "./Auth/PrivateRoute";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
+import AuthProvider from "./contexts/AuthProvider";
 import { ThemeContext } from "./contexts/UseThemeContext";
 import AllFood from "./pages/AllFood/AllFood";
 import Login from "./pages/auth/Login";
@@ -21,34 +22,36 @@ import FoodById from "./pages/Services/FoodById";
 function App() {
   const { theme } = useContext(ThemeContext);
   return (
-    <div className="app" id={theme} style={{ width: "100%" }}>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/:id"
-          element={
-            <PrivateRoute>
-              <FoodById />
-            </PrivateRoute>
-          }
-        />
-        <Route path="all-food" element={<AllFood />} />
-        <Route path="became-a-delivery-man" element={<BecameADeliveryMan />} />
+    <AuthProvider>
+      <div className="app" id={theme} style={{ width: "100%" }}>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/:id"
+            element={
+              <PrivateRoute>
+                <FoodById />
+              </PrivateRoute>
+            }
+          />
+          <Route path="all-food" element={<AllFood />} />
+          <Route path="became-a-delivery-man" element={<BecameADeliveryMan />} />
 
-        <Route path="dashboard" element={<Dashboard />}>
-          <Route path="orders" element={<Orders />} />
-          <Route path="successfulOrder" element={<SuccessfulOrder />} />
-          <Route path="pendingOrder" element={<PendingOrder />} />
-          <Route path="products" element={<Products />} />
-          <Route path="addProduct" element={<AddProducts />} />
-        </Route>
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route path="orders" element={<Orders />} />
+            <Route path="successfulOrder" element={<SuccessfulOrder />} />
+            <Route path="pendingOrder" element={<PendingOrder />} />
+            <Route path="products" element={<Products />} />
+            <Route path="addProduct" element={<AddProducts />} />
+          </Route>
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-      <Footer />
-    </div>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 

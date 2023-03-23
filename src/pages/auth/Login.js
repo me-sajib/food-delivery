@@ -1,88 +1,61 @@
-import React from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import React, { useState } from "react";
+// import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { BsFacebook, BsGoogle, BsTwitter } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
-import auth from "../../firebase.config";
+import { Link } from "react-router-dom";
+import Form from "../../components/Form";
+import Spinner from "../../components/Spinner/Spinner";
+import useAuth from "../../Hooks/useAuth";
+
 
 const Login = () => {
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-  const navigateToHome = useNavigate();
-  const signInUser = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    signInWithEmailAndPassword(email, password);
+  const [formData, setFormData] = useState([]);
+  const { signInUser, authError, isLoading, googleSignIn } = useAuth();
+
+
+
+  const handleSubmit = (event) => {
+    const { email, password } = formData;
+    signInUser(email, password)
+    event.preventDefault();
   };
-  if (error) {
-    console.log(error);
+
+  const handleGoogle = () => {
+    googleSignIn();
   }
-  if (user) {
-    navigateToHome("/");
+
+
+  if (isLoading) {
+    return <Spinner />;
   }
+
+
+  const fields = [
+    { type: "email", name: "email", value: "", required: true, id: "form2Example1", label: 'email address', class: 'form-control' },
+    { type: "password", name: "password", value: "", required: true, id: "form2Example2", label: 'password', class: 'form-control' },
+    { type: "checkbox", required: true, checked: "checked", label: 'Remember me', class: 'form-check-label' }
+  ]
+
   return (
     <div className="container">
       <div className="">
         <h1 className="text-info text-center py-4"> Login Now</h1>
-        <form className="form-width" onSubmit={signInUser}>
-          <div className="form-outline mb-4">
-            <input
-              type="email"
-              name="email"
-              placeholder="enter your email"
-              id="form2Example1"
-              className="form-control"
-            />
-            <label className="form-label" for="form2Example1">
-              Email address
-            </label>
-          </div>
+        <div>
 
-          <div className="form-outline mb-4">
-            <input
-              name="password"
-              type="password"
-              placeholder="enter your password"
-              id="form2Example2"
-              className="form-control"
-            />
-            <label className="form-label" for="form2Example2">
-              Password
-            </label>
-          </div>
 
-          <div className="row mb-4">
-            <div className="col d-flex justify-content-center">
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="form2Example34"
-                  checked
-                />
-                <label className="form-check-label" for="form2Example34">
-                  {" "}
-                  Remember me{" "}
-                </label>
-              </div>
-            </div>
+          <Form fields={fields} setFormData={setFormData} handleSubmit={handleSubmit} formData={formData} />
 
-            <div className="col">
-              <a href="#!">Forgot password?</a>
-            </div>
-          </div>
 
-          <button type="submit" className="btn btn-primary btn-block mb-4">
-            Sign in
-          </button>
-        </form>
+
+
+        </div>
         <div className="text-center">
+          <p className="text-danger">{authError}</p>
+
           <p>
             Not a member? <Link to="/register">Register</Link>
           </p>
           <p>or Login with:</p>
-          <button type="button" className="btn btn-primary btn-floating mx-1">
+          <button onClick={handleGoogle} type="button" className="btn btn-primary btn-floating mx-1">
             <BsGoogle size={20} />
           </button>
 
