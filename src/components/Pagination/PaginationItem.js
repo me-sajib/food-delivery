@@ -1,7 +1,6 @@
 import { ThreeDots } from 'react-loader-spinner';
 
 export function PaginationItem({ currentItems }) {
-    console.log(currentItems);
     return (
         <>
             {currentItems?.length ? <table className='mt-4'>

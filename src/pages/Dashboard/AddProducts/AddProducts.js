@@ -1,11 +1,15 @@
 import folderImage from '../../../images/folderImage.png';
-import React from 'react';
+import React, { useState } from 'react';
 import './AddProducts.css';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const AddProduct = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [imageUrl, setImageUrl] = useState("");
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         const product = {
@@ -13,14 +17,43 @@ const AddProduct = () => {
             catagory: data.catagories,
             price: Number(data.price),
             rating: Number(data.rating),
-            description: data.description
+            description: data.description,
+            photoUrl: imageUrl
         }
-        console.log(product)
+
+        const url = `backend `;
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(product),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log("successfully added product")
+                navigate('/');
+            })
     }
 
-    const handleImage = () => {
-        console.log('upload image')
-    }
+    const handleImage = (event) => {
+        const image = event.target.files[0];
+        const imageData = new FormData();
+        imageData.set("key", "3076d9416252823c2788e18914d271ae");
+        imageData.append("image", image);
+
+        axios
+            .post("https://api.imgbb.com/1/upload", imageData)
+            .then(function (response) {
+                setImageUrl(response.data.data.display_url);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+
 
     return (
         <div id='addProduct'>

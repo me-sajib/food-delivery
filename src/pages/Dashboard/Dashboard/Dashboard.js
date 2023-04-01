@@ -1,13 +1,12 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet } from 'react-router-dom';
-import auth from '../../../firebase.config';
+import useAuth from '../../../Hooks/useAuth';
 import './Dashboard.css';
 import classes from "./Dashboard.module.css";
 
 
 const Dashboard = () => {
-    const [user] = useAuthState(auth);
+    const { user } = useAuth();
     return (
         <div className='d-flex dashboard'>
             <div className="d-flex flex-column side-bar flex-shrink-0 p-3 text-white bg">
