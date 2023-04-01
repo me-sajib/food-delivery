@@ -16,15 +16,20 @@ const Register = () => {
     if (password.length < 6) {
       setPasswordError("Password should be at least 6 characters");
       return;
+
     }
-    if (!/(?=.*[A-Z])/.test(password)) {
-      setPasswordError("Please Provide at least one uppercase");
-      return;
+    // useEffect(() => {
+    //   navigateToHome("/");
+    // }, [navigateToHome]);
+
+    if (user) {
+        navigateToHome("/");
     }
-    if (!/(?=.*[!@#$%^&*])/.test(password)) {
-      setPasswordError("Please Provide at least one special Character");
-      return;
+
+    if (loading) {
+        return <div>Loading...</div>;
     }
+
     RegisterUser(email, password, name)
     event.preventDefault();
   };
@@ -59,22 +64,54 @@ const Register = () => {
           <Link to="/login">Login</Link>
         </div>
 
-        <div className="text-center">
-          <p className=" ">Or Register with</p>
-          <button type="button" className="btn btn-primary btn-floating mx-1">
-            <BsGoogle size={20} />
-          </button>
+                    <div className="form-outline mb-4">
+                        <label
+                            className="form-label fw-semibold text-secondary"
+                            htmlFor="form3Example4"
+                        >
+                            Password
+                        </label>
+                        <input
+                            onFocus={() => { !passwordError && setPasswordWarning('Password must be strong') }}
+                            onBlur={() => setPasswordWarning('')}
+                            type="password"
+                            placeholder="XXXXXXXX"
+                            id="form3Example4"
+                            className={`${inputCommonStyle}`}
+                            name="password"
+                            required
+                        />
+                    </div>
 
-          <button type="button" className="btn btn-primary btn-floating mx-1">
-            <BsFacebook size={20} />
-          </button>
-          <button type="button" className="btn btn-primary btn-floating mx-1">
-            <BsTwitter size={20} />
-          </button>
+                    <div className="form outline mb-4">
+                        <label
+                            className="form-label fw-semibold text-secondary"
+                            htmlFor="user"
+                        >
+                            Role
+                        </label>
+                        <select
+                            name="role"
+                            id="user"
+                            className={`${inputCommonStyle}`}
+                            aria-label="Default select"
+                            defaultValue={"user"}
+                            required
+                        >
+                            <option>User</option>
+                            <option>Seller</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" className="btn btn-warning text-white rounded-0 fw-semibold btn-block mb-4">
+                            Sign up
+                        </button>
+                        <p>already you have an account? <Link to="/login">login</Link> now.</p>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Register;

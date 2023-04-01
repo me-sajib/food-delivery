@@ -17,13 +17,13 @@ const Login = () => {
     const { email, password } = formData;
     signInUser(email, password)
     event.preventDefault();
+
   };
 
   const handleGoogle = () => {
     googleSignIn();
   }
-
-
+  
   if (isLoading) {
     return <Spinner />;
   }

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const BecameADeliveryMan = () => {
+  const [disabled, setDisabled] = useState(true);
   return (
-    <div className="w-50 mx-auto m-4">
-      <h2 className="text-center py-3">Became a new Delivery Man</h2>
-      <form className="row g-3 needs-validation" noValidate>
+    <div className="sm-width mx-auto my-4 px-3">
+      <h3 className="text-center py-3">Became A Delivery Man</h3>
+      <form className="row g-4 needs-validation" >
         <div className="col-md-6">
           <label htmlFor="validationCustom01" className="form-label">
             First name
@@ -13,6 +15,7 @@ const BecameADeliveryMan = () => {
             type="text"
             className="form-control"
             id="validationCustom01"
+            placeholder="Enter your first name"
             required
           />
           <div className="valid-feedback">Looks good!</div>
@@ -23,6 +26,7 @@ const BecameADeliveryMan = () => {
           </label>
           <input
             type="text"
+            placeholder="Enter your last name"
             className="form-control"
             id="validationCustom02"
             required
@@ -31,13 +35,14 @@ const BecameADeliveryMan = () => {
         </div>
         <div className="col-md-6">
           <label htmlFor="validationCustomUsername" className="form-label">
-            Email
+            Email / Phone
           </label>
           <div className="input-group has-validation">
             <input
               type="text"
               className="form-control"
               id="validationCustomUsername"
+              placeholder="Enter your Email or Phone number"
               aria-describedby="inputGroupPrepend"
               required
             />
@@ -52,28 +57,30 @@ const BecameADeliveryMan = () => {
             type="text"
             className="form-control"
             id="validationCustom03"
+            placeholder="Enter your city"
             required
           />
           <div className="invalid-feedback">Please provide a valid city.</div>
         </div>
         <div className="col-md-6">
-          <label htmlFor="validationCustom05" className="form-label">
-            Zip
+          <label htmlFor="validationCustom04" className="form-label">
+            Street Address
           </label>
           <input
             type="text"
             className="form-control"
-            id="validationCustom05"
+            id="validationCustom04"
+            placeholder="Enter your street address"
             required
           />
-          <div className="invalid-feedback">Please provide a valid zip.</div>
+          <div className="invalid-feedback">Please provide a valid street city.</div>
         </div>
         <div className="col-md-6">
           <label htmlFor="validationCustom05" className="form-label">
             Picture URL
           </label>
           <input
-            type="text"
+            type="file"
             className="form-control"
             id="validationCustom05"
             required
@@ -82,21 +89,20 @@ const BecameADeliveryMan = () => {
         </div>
         <div className="col-md-6">
           <label htmlFor="validationCustom05" className="form-label">
-            Bike Details
+            Delivery Option
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationCustom06"
-            required
-          />
-          <div className="invalid-feedback">Please provide a valid zip.</div>
+          <select name="option" id="option" className="form-control">
+            <option value="select">Select Option</option>
+            <option value="bike">Bike</option>
+            <option value="cycle">Cycle</option>
+          </select>
         </div>
         <div className="col-12">
           <div className="form-check">
             <input
               className="form-check-input"
               type="checkbox"
+              onClick={() => setDisabled(!disabled)}
               value=""
               id="invalidCheck"
               required
@@ -110,9 +116,10 @@ const BecameADeliveryMan = () => {
           </div>
         </div>
         <div className="col-12">
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" disabled={disabled} type="submit">
             Submit
           </button>
+          <Link to="/" className="btn-link btn">Back</Link>
         </div>
       </form>
     </div>
